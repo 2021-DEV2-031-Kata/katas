@@ -15,4 +15,9 @@ class BoardTests: XCTestCase {
         XCTAssertTrue(board.state.count == 3)
     }
     
+    func testBoardInitializesBoardWithCorrectNumberOfCols() {
+        let board = Board(size: 3)
+        XCTAssertEqual(board.getColumns().count, 3)
+    }
+    
 }
