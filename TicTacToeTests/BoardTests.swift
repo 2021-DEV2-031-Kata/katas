@@ -20,4 +20,10 @@ class BoardTests: XCTestCase {
         XCTAssertTrue(board.state[0].count == 3)
     }
     
+    func testBoardSettingAMarkSetsAMark() {
+        let board = Board(size: 3)
+        board.mark(0,0, mark: "X")
+        XCTAssertEqual(board.state[0][0], "X")
+    }
+    
 }
