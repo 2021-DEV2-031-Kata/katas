@@ -8,9 +8,16 @@
 import UIKit
 
 class ViewController: UIViewController {
+    struct Mark {
+        let x: Int
+        let y: Int
+    }
+
     var boardSize: Int = 3
     var firstPlayer = Player(mark: "X")
     var secondPlaer = Player(mark: "O")
+
+    private var buttonPositions: [UIButton: Mark] = [:]
 
     lazy var game: Game = {
         createNewGame()
@@ -94,6 +101,7 @@ class ViewController: UIViewController {
             for (j, col) in row.enumerated() {
                 let button = makeGridButton(title: col)
                 buttonContainer.addArrangedSubview(button)
+                buttonPositions[button] = Mark(x: i, y: j)
             }
 
             boardContainer.addArrangedSubview(buttonContainer)
@@ -111,12 +119,32 @@ class ViewController: UIViewController {
         statusLabel.text = defaultStatusLabelText
     }
 
+    @objc func didTapMarkButton(sender: UIButton) {
+        if let mark = buttonPositions[sender] {
+            game.play(mark.x, mark.y)
+            let markResult = game.state
+
+            switch markResult {
+            case .ongoing:
+                statusLabel.text = "Next move for: \(game.currentPlayer.mark)"
+            case let .win(winnersMark):
+                statusLabel.text = "We have a winner: \(winnersMark)!"
+            case .tie:
+                statusLabel.text = "It's a tie!"
+            case let .error(description):
+                statusLabel.text = description
+            }
+            drawBoard()
+        }
+    }
+
     private func makeGridButton(title: String) -> UIButton {
         let button = UIButton()
         button.setTitle(title, for: .normal)
         button.backgroundColor = .white
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: ViewProperties.fontSize)
+        button.addTarget(self, action: #selector(didTapMarkButton(sender:)), for: .touchUpInside)
         return button
     }
 
