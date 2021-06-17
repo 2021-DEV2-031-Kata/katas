@@ -150,6 +150,15 @@ class GameTests: XCTestCase {
         XCTAssertEqual(game.state, .error("Cannot mark alrady marked position"))
     }
     
+    func testGameWhenPlayingAnAlreadyMarkedPositionPlayerCanContinueOnCorrectPosition() {
+        var game = Game(board: Board(), firstPlayer: Player(mark: "X"), secondPlayer: Player(mark: "O"))
+        
+        game.play(0, 0)
+        game.play(0, 0)
+        game.play(1, 0)
+        XCTAssertEqual(game.state, .ongoing)
+    }
+    
     private func createBoardWithWithMarkedPosition(size: Int = 3, mark: (row: Int, col: Int, value: String)) -> [[String]] {
         var board = Array<[String]>(repeating: Array<String>(repeating: "", count: size), count: size)
         board[mark.row][mark.col] = mark.value

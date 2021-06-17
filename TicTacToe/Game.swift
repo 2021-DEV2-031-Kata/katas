@@ -44,6 +44,7 @@ struct Game {
                 state = .tie
             } else {
                 currentPlayer = changePlayer()
+                state = .ongoing
             }
         } catch BoardError.alreadyMarkedPosition {
             state = .error("Cannot mark alrady marked position")
