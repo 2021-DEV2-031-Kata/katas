@@ -17,5 +17,12 @@ class GameTests: XCTestCase {
         XCTAssertEqual(game.firstPlayer, firstPlayer)
         XCTAssertEqual(game.secondPlayer, secondPlayer)
     }
+    
+    func testGameConfiguredWithPlayerSetsCurrentPlayer() {
+        let firstPlayer = Player(mark: "X")
+        let secondPlayer = Player(mark: "O")
+        let game = Game(firstPlayer: firstPlayer, secondPlayer: secondPlayer)
+        game.currentPlayer = firstPlayer
+    }
   
 }
