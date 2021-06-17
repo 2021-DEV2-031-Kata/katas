@@ -59,7 +59,7 @@ struct Game {
     
     private func checkWinningState() -> Bool {
         return checkWinningStateAlongRows() || checkWinningStateAlongColumns()
-            || checkWinningStateAlongDiagonals() || checkWinningStateAlongMinorDiagonal()
+            || checkWinningStateAlongPrincipalDiagonal() || checkWinningStateAlongMinorDiagonal()
     }
     
     private func checkWinningStateAlongRows() -> Bool {
@@ -71,7 +71,7 @@ struct Game {
         return columns.map { $0.allSatisfy { $0 == currentPlayer.mark }}.first { $0 } ?? false
     }
     
-    private func checkWinningStateAlongDiagonals() -> Bool {
+    private func checkWinningStateAlongPrincipalDiagonal() -> Bool {
         var boardState = board.state
         return boardState.principalDiagonal().allSatisfy { $0 == currentPlayer.mark }
     }
