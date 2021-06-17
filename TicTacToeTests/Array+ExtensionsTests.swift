@@ -8,28 +8,26 @@
 import XCTest
 
 class Array_ExtensionsTests: XCTestCase {
-
     func testMatrixExtractValuesAlongDiagonal() {
         var matrix = [
             ["X", "A", "B"],
             ["D", "X", "C"],
             ["E", "F", "X"],
         ]
-        
+
         let diagonal = matrix.principalDiagonal()
-        XCTAssertEqual(diagonal, ["X", "X","X"])
+        XCTAssertEqual(diagonal, ["X", "X", "X"])
     }
-    
+
     func testMatrixExtractValuesAlongDiagonalReverse() {
         var matrix = [
             ["X", "A", "Y"],
             ["D", "Y", "C"],
             ["Y", "F", "X"],
         ]
-        
-        var reversed:[[String]] = matrix.reversed()
-        let diagonal = reversed.principalDiagonal()
-        XCTAssertEqual(diagonal, ["Y", "Y","Y"])
-    }
 
+        var reversed: [[String]] = matrix.reversed()
+        let diagonal = reversed.principalDiagonal()
+        XCTAssertEqual(diagonal, ["Y", "Y", "Y"])
+    }
 }
