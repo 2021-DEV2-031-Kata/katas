@@ -27,6 +27,10 @@ struct Board {
             throw BoardError.illegalMarkPostion
         }
         
+        guard state[row][col].isEmpty else {
+            throw BoardError.alreadyMarkedPosition
+        }
+        
         state[row][col] = mark
     }
 }
