@@ -24,6 +24,10 @@ class ViewController: UIViewController {
         return button
     }()
 
+    var defaultStatusLabelText: String {
+        return "Make first mark: \(game.firstPlayer.mark)"
+    }
+
     lazy var statusLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray
