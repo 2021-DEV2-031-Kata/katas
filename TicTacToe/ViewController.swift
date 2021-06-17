@@ -8,7 +8,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var game: Game = ViewController.createNewGame()
+    var boardSize: Int = 3
+    var firstPlayer = Player(mark: "X")
+    var secondPlaer = Player(mark: "O")
+
+    lazy var game: Game = {
+        createNewGame()
+    }()
 
     private enum ViewProperties {
         static let fontSize: CGFloat = 32
@@ -99,7 +105,7 @@ class ViewController: UIViewController {
     }
 
     func newGame() {
-        game = ViewController.createNewGame()
+        game = createNewGame()
         drawBoard()
         statusLabel.text = defaultStatusLabelText
     }
@@ -113,7 +119,9 @@ class ViewController: UIViewController {
         return button
     }
 
-    private static func createNewGame() -> Game {
-        return Game(board: Board(), firstPlayer: Player(mark: "X"), secondPlayer: Player(mark: "O"))
+    private func createNewGame() -> Game {
+        let board = Board(size: boardSize)
+        let game = Game(board: board, firstPlayer: firstPlayer, secondPlayer: secondPlaer)
+        return game
     }
 }
