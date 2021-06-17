@@ -23,4 +23,11 @@ class ViewControllerTests: XCTestCase {
         let sut = ViewController()
         XCTAssertEqual(sut.statusLabel.text, "Make first mark: \(sut.game.firstPlayer.mark)")
     }
+
+    func testViewControllerInitializedWillDisplayBoardWithCorrectNumberOfButtons() {
+        let sut = ViewController()
+        sut.loadViewIfNeeded()
+        let buttons = sut.boardContainer.arrangedSubviews.reduce([]) { $0 + $1.subviews }
+        XCTAssertEqual(buttons.count, 9)
+    }
 }
