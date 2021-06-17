@@ -26,7 +26,7 @@ class GameTests: XCTestCase {
     }
     
     func testGamePlayingGameMarksCorrectPositionOnTheBoard() {
-        let game = Game(board: Board(), firstPlayer: Player(mark: "X"), secondPlayer: Player(mark: "O"))
+        var game = Game(board: Board(), firstPlayer: Player(mark: "X"), secondPlayer: Player(mark: "O"))
         game.play(0, 0)
         let board = game.getBoard()
         XCTAssertEqual(board, createBoardWithWithMarkedPosition(size: 3, mark: (row: 0, col: 0,  value: "X")))
