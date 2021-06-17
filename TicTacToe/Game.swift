@@ -37,7 +37,7 @@ struct Game {
         
         try? board.mark(row, col, mark: currentPlayer.mark)
         
-        if checkWinningState() || checkWinningStateAlongColumns()
+        if checkWinningStateAlongRows() || checkWinningStateAlongColumns()
             || checkWinningStateAlongDiagonals() || checkWinningStateAlongMinorDiagonal() {
             state = .win(player: currentPlayer.mark)
         } else if checkATieGameState() {
@@ -58,7 +58,7 @@ struct Game {
         return firstPlayer
     }
     
-    private func checkWinningState() -> Bool {
+    private func checkWinningStateAlongRows() -> Bool {
         return board.state.map { $0.allSatisfy { $0 == currentPlayer.mark }}.first { $0 } ?? false
     }
     
