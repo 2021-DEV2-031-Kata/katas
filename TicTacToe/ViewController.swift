@@ -10,6 +10,15 @@ import UIKit
 class ViewController: UIViewController {
     var game: Game = ViewController.createNewGame()
 
+    let newGameButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("New Game", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .orange
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

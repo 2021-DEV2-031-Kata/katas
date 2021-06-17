@@ -13,4 +13,9 @@ class ViewControllerTests: XCTestCase {
         let sut = ViewController()
         XCTAssertNotNil(sut.game)
     }
+
+    func testViewControllerInitializedWillHaveCorrectNewButtonTitle() {
+        let sut = ViewController()
+        XCTAssertEqual(sut.newGameButton.titleLabel?.text, "New Game")
+    }
 }
