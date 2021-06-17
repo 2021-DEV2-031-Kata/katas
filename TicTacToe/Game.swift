@@ -21,4 +21,8 @@ struct Game {
         try? board.mark(row, col, mark: currentPlayer.mark)
     }
     
+    func getBoard() -> [[String]] {
+        return board.state
+    }
+    
 }
