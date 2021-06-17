@@ -15,6 +15,6 @@ struct Board {
     }
     
     mutating func mark(_ row: Int, _ col: Int, mark: String) {
-        
+        state[row][col] = mark
     }
 }
