@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .orange
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(didTapNewGameButton(sender:)), for: .touchUpInside)
         return button
     }()
 
@@ -90,6 +91,13 @@ class ViewController: UIViewController {
 
             boardContainer.addArrangedSubview(buttonContainer)
         }
+    }
+
+    @objc func didTapNewGameButton(sender _: UIButton) {
+        debugPrint("User tapped New Game button")
+        game = ViewController.createNewGame()
+        drawBoard()
+        statusLabel.text = defaultStatusLabelText
     }
 
     private func makeGridButton(title: String) -> UIButton {
