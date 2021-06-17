@@ -13,7 +13,7 @@ class GameTests: XCTestCase {
     func testGameConfiguredWithPlayerSetsPlayers() {
         let firstPlayer = Player(mark: "X")
         let secondPlayer = Player(mark: "O")
-        let game = Game(firstPlayer: firstPlayer, secondPlayer: secondPlayer)
+        let game = Game(board: Board(), firstPlayer: firstPlayer, secondPlayer: secondPlayer)
         XCTAssertEqual(game.firstPlayer, firstPlayer)
         XCTAssertEqual(game.secondPlayer, secondPlayer)
     }
@@ -21,12 +21,12 @@ class GameTests: XCTestCase {
     func testGameConfiguredWithPlayerSetsCurrentPlayer() {
         let firstPlayer = Player(mark: "X")
         let secondPlayer = Player(mark: "O")
-        let game = Game(firstPlayer: firstPlayer, secondPlayer: secondPlayer)
+        let game = Game(board: Board(), firstPlayer: firstPlayer, secondPlayer: secondPlayer)
         XCTAssertEqual(game.currentPlayer, firstPlayer)
     }
     
     func testGamePlayingGameMarksCorrectPositionOnTheBoard() {
-        let game = Game(firstPlayer: Player(mark: "X"), secondPlayer: Player(mark: "O"))
+        let game = Game(board: Board(), firstPlayer: Player(mark: "X"), secondPlayer: Player(mark: "O"))
         game.play(0, 0)
         let board = game.getBoard()
         XCTAssertEqual(board, createBoardWithWithMarkedPosition(size: 3, mark: (row: 0, col: 0,  value: "X")))
