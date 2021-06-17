@@ -39,8 +39,9 @@ struct Game {
             state = .win(player: currentPlayer.mark)
         } else if checkATieGameState() {
             state = .tie
+        } else {
+            currentPlayer = changePlayer()
         }
-        currentPlayer = changePlayer()
     }
     
     func getBoard() -> [[String]] {
