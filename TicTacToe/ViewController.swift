@@ -80,12 +80,21 @@ class ViewController: UIViewController {
             buttonContainer.distribution = .fillEqually
 
             for (j, col) in row.enumerated() {
-                let button = UIButton()
+                let button = makeGridButton(title: col)
                 buttonContainer.addArrangedSubview(button)
             }
 
             boardContainer.addArrangedSubview(buttonContainer)
         }
+    }
+
+    private func makeGridButton(title: String) -> UIButton {
+        let button = UIButton()
+        button.setTitle(title, for: .normal)
+        button.backgroundColor = .white
+        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: ViewProperties.fontSize)
+        return button
     }
 
     private static func createNewGame() -> Game {
