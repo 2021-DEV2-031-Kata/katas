@@ -37,8 +37,7 @@ struct Game {
         
         try? board.mark(row, col, mark: currentPlayer.mark)
         
-        if checkWinningStateAlongRows() || checkWinningStateAlongColumns()
-            || checkWinningStateAlongDiagonals() || checkWinningStateAlongMinorDiagonal() {
+        if checkWinningState() {
             state = .win(player: currentPlayer.mark)
         } else if checkATieGameState() {
             state = .tie
@@ -56,6 +55,11 @@ struct Game {
             return secondPlayer
         }
         return firstPlayer
+    }
+    
+    private func checkWinningState() -> Bool {
+        return checkWinningStateAlongRows() || checkWinningStateAlongColumns()
+            || checkWinningStateAlongDiagonals() || checkWinningStateAlongMinorDiagonal()
     }
     
     private func checkWinningStateAlongRows() -> Bool {
