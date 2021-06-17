@@ -17,7 +17,7 @@ struct Board {
     
     private let size: Int
     
-    init(size: Int) {
+    init(size: Int = 3) {
         self.size = size
         state = Array<[String]>(repeating: Array<String>(repeating: "", count: size), count: size)
     }
