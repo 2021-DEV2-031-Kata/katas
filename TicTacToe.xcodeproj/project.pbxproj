@@ -22,6 +22,7 @@
 		46448857267B495D001F5808 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46448856267B495D001F5808 /* Player.swift */; };
 		46448859267B4CC0001F5808 /* PlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46448858267B4CC0001F5808 /* PlayerTests.swift */; };
 		4644885B267B6B0C001F5808 /* Array+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4644885A267B6B0C001F5808 /* Array+ExtensionsTests.swift */; };
+		464E2E5D267BB463005C7EFE /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E2E5C267BB463005C7EFE /* ViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		46448856267B495D001F5808 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		46448858267B4CC0001F5808 /* PlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTests.swift; sourceTree = "<group>"; };
 		4644885A267B6B0C001F5808 /* Array+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+ExtensionsTests.swift"; sourceTree = "<group>"; };
+		464E2E5C267BB463005C7EFE /* ViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				46448854267B48D2001F5808 /* GameTests.swift */,
 				46448858267B4CC0001F5808 /* PlayerTests.swift */,
 				4644885A267B6B0C001F5808 /* Array+ExtensionsTests.swift */,
+				464E2E5C267BB463005C7EFE /* ViewControllerTests.swift */,
 			);
 			path = TicTacToeTests;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				464E2E5D267BB463005C7EFE /* ViewControllerTests.swift in Sources */,
 				46448859267B4CC0001F5808 /* PlayerTests.swift in Sources */,
 				4644884F267B3057001F5808 /* BoardTests.swift in Sources */,
 				46448855267B48D2001F5808 /* GameTests.swift in Sources */,
