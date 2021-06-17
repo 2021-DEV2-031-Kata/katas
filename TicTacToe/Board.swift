@@ -15,7 +15,7 @@ enum BoardError: Error {
 struct Board {
     private(set) var state:[[String]]
     
-    private let size: Int
+    let size: Int
     
     init(size: Int = 3) {
         self.size = size
