@@ -37,6 +37,8 @@ struct Game {
         if checkWinningState() || checkWinningStateAlongColumns()
             || checkWinningStateAlongDiagonals() || checkWinningStateAlongMinorDiagonal() {
             state = .win(player: currentPlayer.mark)
+        } else if checkATieGameState() {
+            state = .tie
         }
         currentPlayer = changePlayer()
     }
@@ -69,6 +71,10 @@ struct Game {
     private func checkWinningStateAlongMinorDiagonal() -> Bool {
         var boardState:[[String]] = board.state.reversed()
         return boardState.principalDiagonal().allSatisfy { $0 == currentPlayer.mark }
+    }
+    
+    private func checkATieGameState() -> Bool {
+        return board.state.reduce([], +).allSatisfy { !$0.isEmpty }
     }
     
     private func transpose(matrix: [[String]]) -> [[String]] {
