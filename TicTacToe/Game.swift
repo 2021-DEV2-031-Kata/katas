@@ -72,3 +72,14 @@ struct Game {
     }
     
 }
+
+private extension Array {
+    mutating func principalDiagonal<Element>(index: Int = 0, result: [Element] = []) -> [Element] where Self.Element == [Element] {
+        guard !isEmpty else {
+            return result
+        }
+        var result = result
+        result.append(removeFirst()[index])
+        return principalDiagonal(index: index + 1, result: result)
+    }
+}
