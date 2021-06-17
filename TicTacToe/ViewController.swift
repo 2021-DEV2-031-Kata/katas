@@ -50,6 +50,7 @@ class ViewController: UIViewController {
         view.axis = .vertical
         view.distribution = .fillEqually
         view.spacing = ViewProperties.spacing
+        view.backgroundColor = .red
         return view
     }()
 
