@@ -32,6 +32,9 @@ struct Game {
     }
     
     mutating func play(_ row: Int, _ col: Int) {
+        
+        guard case .ongoing = state else { return }
+        
         try? board.mark(row, col, mark: currentPlayer.mark)
         
         if checkWinningState() || checkWinningStateAlongColumns()
