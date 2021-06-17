@@ -33,4 +33,12 @@ class BoardTests: XCTestCase {
         }
     }
     
+    func testBoardSettingMarkAtMarkedPositionThrowsError() throws {
+        var board = Board(size: 3)
+        try board.mark(0, 0, mark: "X")
+        XCTAssertThrowsError(try board.mark(20,20, mark: "X")) { error in
+            XCTAssertEqual(error as? BoardError, BoardError.alreadyMarkedPosition)
+        }
+    }
+    
 }
