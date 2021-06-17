@@ -24,15 +24,15 @@ class ViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.statusLabel.text, "Make first mark: \(sut.game.firstPlayer.mark)")
     }
 
-    func testViewControllerInitializedWillDisplayBoardWithCorrectNumberOfButtons() {
-        let board = Board(size: 4)
-        let game = Game(board: board, firstPlayer: Player(mark: "X"), secondPlayer: Player(mark: "O"))
-
+    func testViewControllerTappingNewGameButtonRestartsTheGame() {
         let sut = ViewController()
-        sut.game = game
+        sut.game.play(0, 1)
+        var markedPosition = sut.game.getBoard().reduce([], +).filter { !$0.isEmpty }
+        XCTAssertEqual(markedPosition.count, 1)
 
-        sut.loadViewIfNeeded()
-        let buttons = sut.boardContainer.arrangedSubviews.reduce([]) { $0 + $1.subviews }
-        XCTAssertEqual(buttons.count, board.size * board.size)
+        sut.didTapNewGameButton(sender: sut.newGameButton)
+
+        markedPosition = sut.game.getBoard().reduce([], +).filter { !$0.isEmpty }
+        XCTAssertEqual(markedPosition.count, 0)
     }
 }
