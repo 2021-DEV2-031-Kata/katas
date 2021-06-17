@@ -33,6 +33,10 @@ struct Game {
     
     mutating func play(_ row: Int, _ col: Int) {
         try? board.mark(row, col, mark: currentPlayer.mark)
+        
+        if checkWinningState() {
+            state = .win(player: currentPlayer.mark)
+        }
         currentPlayer = changePlayer()
     }
     
@@ -45,6 +49,10 @@ struct Game {
             return secondPlayer
         }
         return firstPlayer
+    }
+    
+    private func checkWinningState() -> Bool {
+        return board.state.map { $0.allSatisfy { $0 == currentPlayer.mark }}.first { $0 } ?? false
     }
     
 }
