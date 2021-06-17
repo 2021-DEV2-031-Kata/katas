@@ -10,6 +10,10 @@ import UIKit
 class ViewController: UIViewController {
     var game: Game = ViewController.createNewGame()
 
+    private enum ViewProperties {
+        static let spacing: CGFloat = 2
+    }
+
     let newGameButton: UIButton = {
         let button = UIButton()
         button.setTitle("New Game", for: .normal)
