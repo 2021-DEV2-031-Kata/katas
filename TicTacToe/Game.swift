@@ -22,6 +22,8 @@ struct Game {
     private(set) var board: Board
     private(set) var currentPlayer: Player
     
+    private(set) var state: GameState = .ongoing
+    
     init(board: Board, firstPlayer: Player, secondPlayer: Player) {
         self.board = board
         self.firstPlayer = firstPlayer
