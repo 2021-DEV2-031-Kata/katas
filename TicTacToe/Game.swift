@@ -35,15 +35,22 @@ struct Game {
         
         guard case .ongoing = state else { return }
         
-        try? board.mark(row, col, mark: currentPlayer.mark)
-        
-        if checkWinningState() {
-            state = .win(player: currentPlayer.mark)
-        } else if checkATieGameState() {
-            state = .tie
-        } else {
-            currentPlayer = changePlayer()
+        do {
+            try board.mark(row, col, mark: currentPlayer.mark)
+            
+            if checkWinningState() {
+                state = .win(player: currentPlayer.mark)
+            } else if checkATieGameState() {
+                state = .tie
+            } else {
+                currentPlayer = changePlayer()
+            }
+        } catch BoardError.alreadyMarkedPosition {
+            state = .error("Cannot mark alrady marked position")
+        } catch {
+            preconditionFailure("Unexpected error: \(error)")
         }
+        
     }
     
     func getBoard() -> [[String]] {
