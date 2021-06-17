@@ -12,6 +12,15 @@ enum GameState: Equatable {
     case win(player: String)
     case tie
     case error(String)
+    
+    var canPlayFurther: Bool {
+        switch self {
+        case .win, .tie:
+            return false
+        default:
+            return true
+        }
+    }
 }
 
 struct Game {
