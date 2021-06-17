@@ -6,8 +6,16 @@
 //
 
 import XCTest
+@testable import TicTacToe
 
 class GameTests: XCTestCase {
 
+    func testGameConfiguredWithPlayerSetsPlayers() {
+        let firstPlayer = Player(mark: "X")
+        let secondPlayer = Player(mark: "O")
+        let game = Game(firstPlayer: firstPlayer, secondPlayer: secondPlayer)
+        XCTAssertEqual(game.firstPlayer, firstPlayer)
+        XCTAssertEqual(game.secondPlayer, secondPlayer)
+    }
   
 }
