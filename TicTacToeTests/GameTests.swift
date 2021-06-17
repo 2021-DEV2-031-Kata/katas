@@ -92,7 +92,7 @@ class GameTests: XCTestCase {
          X . .
          */
         
-        game.play(2, 0)
+        game.play(0, 2)
         game.play(0, 0)
         game.play(1, 1)
         game.play(1, 0)
