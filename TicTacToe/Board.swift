@@ -7,6 +7,10 @@
 
 import Foundation
 
+enum BoardError: Error {
+    case illegalMarkPostion
+}
+
 struct Board {
     var state:[[String]]
     
