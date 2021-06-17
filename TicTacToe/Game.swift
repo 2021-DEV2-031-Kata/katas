@@ -9,4 +9,12 @@ import Foundation
 
 struct Game {
     
+    private(set) var firstPlayer: Player
+    private(set) var secondPlayer: Player
+    
+    init(firstPlayer: Player, secondPlayer: Player) {
+        self.firstPlayer = firstPlayer
+        self.secondPlayer = secondPlayer
+    }
+    
 }
