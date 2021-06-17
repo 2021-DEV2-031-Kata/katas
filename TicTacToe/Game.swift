@@ -9,6 +9,7 @@ import Foundation
 
 struct Game {
     
+    let board: Board
     let firstPlayer: Player
     let secondPlayer: Player
     
