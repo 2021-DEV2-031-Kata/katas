@@ -41,4 +41,11 @@ class BoardTests: XCTestCase {
         }
     }
     
+    func testBoardSettingMarkAtINegativePositionThrowsAnError() throws {
+        var board = Board(size: 3)
+        XCTAssertThrowsError(try board.mark(-1,-2, mark: "X")) { error in
+            XCTAssertEqual(error as? BoardError, BoardError.illegalMarkPostion)
+        }
+    }
+    
 }
