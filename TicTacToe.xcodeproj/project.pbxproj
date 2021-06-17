@@ -18,6 +18,7 @@
 		4644884F267B3057001F5808 /* BoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4644884E267B3057001F5808 /* BoardTests.swift */; };
 		46448851267B320E001F5808 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46448850267B320E001F5808 /* Board.swift */; };
 		46448853267B48AC001F5808 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46448852267B48AC001F5808 /* Game.swift */; };
+		46448855267B48D2001F5808 /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46448854267B48D2001F5808 /* GameTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		4644884E267B3057001F5808 /* BoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTests.swift; sourceTree = "<group>"; };
 		46448850267B320E001F5808 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		46448852267B48AC001F5808 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		46448854267B48D2001F5808 /* GameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				46448833267B2E86001F5808 /* TicTacToeTests.swift */,
 				46448835267B2E86001F5808 /* Info.plist */,
 				4644884E267B3057001F5808 /* BoardTests.swift */,
+				46448854267B48D2001F5808 /* GameTests.swift */,
 			);
 			path = TicTacToeTests;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4644884F267B3057001F5808 /* BoardTests.swift in Sources */,
+				46448855267B48D2001F5808 /* GameTests.swift in Sources */,
 				46448834267B2E86001F5808 /* TicTacToeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
