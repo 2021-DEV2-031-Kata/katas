@@ -18,4 +18,9 @@ class ViewControllerTests: XCTestCase {
         let sut = ViewController()
         XCTAssertEqual(sut.newGameButton.titleLabel?.text, "New Game")
     }
+
+    func testViewControllerInitializedStatusLabelWillHaveCorrectTitle() {
+        let sut = ViewController()
+        XCTAssertEqual(sut.statusLabel.text, "Make first mark: \(sut.game.firstPlayer.mark)")
+    }
 }

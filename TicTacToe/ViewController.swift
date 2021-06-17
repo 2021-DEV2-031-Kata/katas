@@ -19,6 +19,15 @@ class ViewController: UIViewController {
         return button
     }()
 
+    lazy var statusLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .gray
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
+        label.text = "Make first mark: \(game.firstPlayer.mark)"
+        return label
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
