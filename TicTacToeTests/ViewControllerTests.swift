@@ -25,9 +25,14 @@ class ViewControllerTests: XCTestCase {
     }
 
     func testViewControllerInitializedWillDisplayBoardWithCorrectNumberOfButtons() {
+        let board = Board(size: 4)
+        let game = Game(board: board, firstPlayer: Player(mark: "X"), secondPlayer: Player(mark: "O"))
+
         let sut = ViewController()
+        sut.game = game
+
         sut.loadViewIfNeeded()
         let buttons = sut.boardContainer.arrangedSubviews.reduce([]) { $0 + $1.subviews }
-        XCTAssertEqual(buttons.count, 9)
+        XCTAssertEqual(buttons.count, board.size * board.size)
     }
 }
