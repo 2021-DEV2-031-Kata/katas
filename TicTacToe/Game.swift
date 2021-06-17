@@ -42,7 +42,7 @@ struct Game {
     
     mutating func play(_ row: Int, _ col: Int) {
         
-        guard case .ongoing = state else { return }
+        guard state.canPlayFurther else { return }
         
         do {
             try board.mark(row, col, mark: currentPlayer.mark)
