@@ -22,7 +22,7 @@ class GameTests: XCTestCase {
         let firstPlayer = Player(mark: "X")
         let secondPlayer = Player(mark: "O")
         let game = Game(firstPlayer: firstPlayer, secondPlayer: secondPlayer)
-        game.currentPlayer = firstPlayer
+        XCTAssertEqual(game.currentPlayer, firstPlayer)
     }
   
 }
