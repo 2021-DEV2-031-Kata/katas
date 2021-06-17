@@ -19,7 +19,7 @@ struct Game {
     let firstPlayer: Player
     let secondPlayer: Player
 
-    private(set) var board: Board
+    private var board: Board
     private(set) var currentPlayer: Player
     
     private(set) var state: GameState = .ongoing
