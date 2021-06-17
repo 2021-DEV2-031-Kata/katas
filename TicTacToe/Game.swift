@@ -34,7 +34,8 @@ struct Game {
     mutating func play(_ row: Int, _ col: Int) {
         try? board.mark(row, col, mark: currentPlayer.mark)
         
-        if checkWinningState() || checkWinningStateAlongColumns() || checkWinningStateAlongDiagonals() {
+        if checkWinningState() || checkWinningStateAlongColumns()
+            || checkWinningStateAlongDiagonals() || checkWinningStateAlongMinorDiagonal() {
             state = .win(player: currentPlayer.mark)
         }
         currentPlayer = changePlayer()
@@ -60,8 +61,13 @@ struct Game {
         return columns.map { $0.allSatisfy { $0 == currentPlayer.mark }}.first { $0 } ?? false
     }
     
-    func checkWinningStateAlongDiagonals() -> Bool {
+    private func checkWinningStateAlongDiagonals() -> Bool {
         var boardState = board.state
+        return boardState.principalDiagonal().allSatisfy { $0 == currentPlayer.mark }
+    }
+    
+    private func checkWinningStateAlongMinorDiagonal() -> Bool {
+        var boardState:[[String]] = board.state.reversed()
         return boardState.principalDiagonal().allSatisfy { $0 == currentPlayer.mark }
     }
     
@@ -78,7 +84,7 @@ struct Game {
     
 }
 
-private extension Array {
+public extension Array {
     mutating func principalDiagonal<Element>(index: Int = 0, result: [Element] = []) -> [Element] where Self.Element == [Element] {
         guard !isEmpty else {
             return result
