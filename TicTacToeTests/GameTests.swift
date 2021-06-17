@@ -52,7 +52,7 @@ class GameTests: XCTestCase {
         game.play(0, 1)
         game.play(1, 1)
         game.play(0, 2)
-        XCTAssertEqual(game.state, .winning("X"))
+        XCTAssertEqual(game.state, .win(player: "X"))
     }
     
     private func createBoardWithWithMarkedPosition(size: Int = 3, mark: (row: Int, col: Int, value: String)) -> [[String]] {
