@@ -44,4 +44,16 @@ class ViewControllerTests: XCTestCase {
         let numberOfMarks = sut.game.getBoard().reduce([], +)
         XCTAssertEqual(expectedBoardSize * expectedBoardSize, numberOfMarks.count)
     }
+
+    func testViewControllerTappingAPostionOnBoardSetsMark() {
+        let sut = ViewController()
+        sut.view.layoutIfNeeded()
+        guard let button = sut.boardContainer.arrangedSubviews.first?.subviews.first as? UIButton else {
+            XCTFail("Must be able to extract a button")
+            return
+        }
+        sut.didTapMarkButton(sender: button)
+        let marks = sut.game.getBoard().reduce([], +)
+        XCTAssertEqual(marks.first, "X")
+    }
 }
