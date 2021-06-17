@@ -48,4 +48,15 @@ class BoardTests: XCTestCase {
         }
     }
     
+    func testBoardSettingMarkAtPositionThatsGreaterThanBoardThrowsAnError() throws {
+        var board = Board(size: 3)
+        
+        // It must NOT be possible to provide a value greater than 2, because size of the array is 3
+        // so the guard must verify if the utmost position of the mark is 2,2
+        
+        XCTAssertThrowsError(try board.mark(3,3, mark: "X")) { error in
+            XCTAssertEqual(error as? BoardError, BoardError.illegalMarkPostion)
+        }
+    }
+    
 }
