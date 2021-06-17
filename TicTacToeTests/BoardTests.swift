@@ -10,8 +10,9 @@ import XCTest
 
 class BoardTests: XCTestCase {
 
-    func testBoardInitializesBoardWithCorrectDimensions() {
-        var board = Board()
+    func testBoardInitializesBoardWithCorrectNumberOfRows() {
+        let board = Board(size: 3)
+        XCTAssertTrue(board.state.count == 3)
     }
-
+    
 }

@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct Board {
+    var state:[[String]]
+    
+    init(size: Int) {
+        state = Array<[String]>(repeating: Array<String>(repeating: "", count: size), count: size)
+    }
+}
