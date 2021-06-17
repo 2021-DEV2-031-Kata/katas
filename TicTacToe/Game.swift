@@ -34,7 +34,7 @@ struct Game {
     mutating func play(_ row: Int, _ col: Int) {
         try? board.mark(row, col, mark: currentPlayer.mark)
         
-        if checkWinningState() {
+        if checkWinningState() || checkWinningStateAlongColumns() {
             state = .win(player: currentPlayer.mark)
         }
         currentPlayer = changePlayer()
@@ -53,6 +53,22 @@ struct Game {
     
     private func checkWinningState() -> Bool {
         return board.state.map { $0.allSatisfy { $0 == currentPlayer.mark }}.first { $0 } ?? false
+    }
+    
+    private func checkWinningStateAlongColumns() -> Bool {
+        let columns = transpose(matrix: board.state)
+        return columns.map { $0.allSatisfy { $0 == currentPlayer.mark }}.first { $0 } ?? false
+    }
+    
+    private func transpose(matrix: [[String]]) -> [[String]] {
+        var result: [[String]] = Array<[String]>(repeating: Array<String>(repeating: "", count: board.size), count: board.size)
+        
+        for i in 0..<matrix.count {
+            for j in 0..<matrix.count {
+                result[i][j] = matrix[j][i]
+            }
+        }
+        return result
     }
     
 }
