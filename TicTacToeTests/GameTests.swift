@@ -65,7 +65,7 @@ class GameTests: XCTestCase {
         XCTAssertEqual(game.state, .win(player: "X"))
     }
     
-    func testGameMarkingAllPositionsByOnePlayerAlongDiagonalsResultInWinningState() {
+    func testGameMarkingAllPositionsByOnePlayerAlongPrincipalDiagonalResultInWinningState() {
         var game = Game(board: Board(), firstPlayer: Player(mark: "X"), secondPlayer: Player(mark: "O"))
         
         /*
