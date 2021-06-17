@@ -11,6 +11,7 @@ class ViewController: UIViewController {
     var game: Game = ViewController.createNewGame()
 
     private enum ViewProperties {
+        static let fontSize: CGFloat = 32
         static let spacing: CGFloat = 2
     }
 
