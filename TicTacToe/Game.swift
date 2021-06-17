@@ -7,6 +7,13 @@
 
 import Foundation
 
+enum GameState: Equatable {
+    case ongoing
+    case win(player: String)
+    case tie
+    case error(String)
+}
+
 struct Game {
     
     let firstPlayer: Player
