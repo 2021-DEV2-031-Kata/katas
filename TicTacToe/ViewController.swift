@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         label.textColor = .gray
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.text = "Make first mark: \(game.firstPlayer.mark)"
+        label.text = defaultStatusLabelText
         return label
     }()
 
