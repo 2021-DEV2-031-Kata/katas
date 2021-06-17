@@ -13,4 +13,8 @@ struct Board {
     init(size: Int) {
         state = Array<[String]>(repeating: Array<String>(repeating: "", count: size), count: size)
     }
+    
+    mutating func mark(_ row: Int, _ col: Int, mark: String) {
+        
+    }
 }
