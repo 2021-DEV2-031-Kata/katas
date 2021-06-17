@@ -95,6 +95,10 @@ class ViewController: UIViewController {
 
     @objc func didTapNewGameButton(sender _: UIButton) {
         debugPrint("User tapped New Game button")
+        newGame()
+    }
+
+    func newGame() {
         game = ViewController.createNewGame()
         drawBoard()
         statusLabel.text = defaultStatusLabelText
