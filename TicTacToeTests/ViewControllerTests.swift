@@ -35,4 +35,14 @@ class ViewControllerTests: XCTestCase {
         markedPosition = sut.game.getBoard().reduce([], +).filter { !$0.isEmpty }
         XCTAssertEqual(markedPosition.count, 0)
     }
+
+    func testViewControllerRestartingTheGameShouldKeepSameConfiguration() {
+        let expectedBoardSize = 4
+        let game = Game(board: Board(size: expectedBoardSize), firstPlayer: Player(mark: "X"), secondPlayer: Player(mark: "O"))
+        let sut = ViewController()
+        sut.game = game
+        sut.newGame()
+        let numberOfMarks = sut.game.getBoard().reduce([], +)
+        XCTAssertEqual(expectedBoardSize * expectedBoardSize, numberOfMarks.count)
+    }
 }
