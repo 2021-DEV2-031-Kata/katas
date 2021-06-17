@@ -9,6 +9,7 @@ import Foundation
 
 enum BoardError: Error {
     case illegalMarkPostion
+    case alreadyMarkedPosition
 }
 
 struct Board {
