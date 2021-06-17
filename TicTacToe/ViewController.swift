@@ -66,6 +66,25 @@ class ViewController: UIViewController {
             boardContainer.topAnchor.constraint(equalToSystemSpacingBelow: newGameButton.bottomAnchor, multiplier: 1),
             boardContainer.bottomAnchor.constraint(greaterThanOrEqualToSystemSpacingBelow: statusLabel.safeAreaLayoutGuide.topAnchor, multiplier: 1),
         ])
+
+        drawBoard()
+    }
+
+    func drawBoard() {
+        boardContainer.subviews.forEach { $0.removeFromSuperview() }
+
+        for (i, row) in game.getBoard().enumerated() {
+            let buttonContainer = UIStackView()
+            buttonContainer.spacing = ViewProperties.spacing
+            buttonContainer.distribution = .fillEqually
+
+            for (j, col) in row.enumerated() {
+                let button = UIButton()
+                buttonContainer.addArrangedSubview(button)
+            }
+
+            boardContainer.addArrangedSubview(buttonContainer)
+        }
     }
 
     private static func createNewGame() -> Game {
