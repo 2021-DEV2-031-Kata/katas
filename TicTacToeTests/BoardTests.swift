@@ -20,10 +20,17 @@ class BoardTests: XCTestCase {
         XCTAssertTrue(board.state[0].count == 3)
     }
     
-    func testBoardSettingAMarkSetsAMark() {
+    func testBoardSettingAMarkSetsAMark() throws {
         var board = Board(size: 3)
-        board.mark(0,0, mark: "X")
+        try board.mark(0,0, mark: "X")
         XCTAssertEqual(board.state[0][0], "X")
+    }
+    
+    func testBoardSettingMarkAtIllegalLocationThrowsAnError() throws {
+        var board = Board(size: 3)
+        XCTAssertThrowsError(try board.mark(20,20, mark: "X")) { error in
+            XCTAssertEqual(error as? BoardError, BoardError.illegalMarkPostion)
+        }
     }
     
 }
