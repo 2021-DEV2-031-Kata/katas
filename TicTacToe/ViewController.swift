@@ -109,7 +109,6 @@ class ViewController: UIViewController {
     }
 
     @objc func didTapNewGameButton(sender _: UIButton) {
-        debugPrint("User tapped New Game button")
         newGame()
     }
 
