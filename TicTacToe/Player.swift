@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct Player {
+struct Player: Equatable {
     let mark: String
 }
