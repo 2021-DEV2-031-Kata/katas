@@ -32,6 +32,15 @@ class ViewController: UIViewController {
         return label
     }()
 
+    let boardContainer: UIStackView = {
+        let view = UIStackView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.axis = .vertical
+        view.distribution = .fillEqually
+        view.spacing = ViewProperties.spacing
+        return view
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(newGameButton)
@@ -48,6 +57,14 @@ class ViewController: UIViewController {
             statusLabel.trailingAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.trailingAnchor, multiplier: 1),
             statusLabel.bottomAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.bottomAnchor, multiplier: 1),
             statusLabel.heightAnchor.constraint(equalToConstant: 50),
+        ])
+
+        view.addSubview(boardContainer)
+        NSLayoutConstraint.activate([
+            boardContainer.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            boardContainer.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            boardContainer.topAnchor.constraint(equalToSystemSpacingBelow: newGameButton.bottomAnchor, multiplier: 1),
+            boardContainer.bottomAnchor.constraint(greaterThanOrEqualToSystemSpacingBelow: statusLabel.safeAreaLayoutGuide.topAnchor, multiplier: 1),
         ])
     }
 
