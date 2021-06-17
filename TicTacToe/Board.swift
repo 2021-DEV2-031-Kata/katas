@@ -23,8 +23,8 @@ struct Board {
     }
     
     mutating func mark(_ row: Int, _ col: Int, mark: String) throws {
-        guard row >= 0, row <= size,
-              col >= 0, col <= size else {
+        guard row >= 0, row < size,
+              col >= 0, col < size else {
             throw BoardError.illegalMarkPostion
         }
         
