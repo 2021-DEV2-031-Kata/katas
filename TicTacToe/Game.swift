@@ -9,12 +9,16 @@ import Foundation
 
 struct Game {
     
-    let board: Board
+    private(set) var board: Board
     let firstPlayer: Player
     let secondPlayer: Player
     
     var currentPlayer: Player {
         return firstPlayer
+    }
+    
+    mutating func play(_ row: Int, _ col: Int) {
+        try? board.mark(row, col, mark: currentPlayer.mark)
     }
     
 }
