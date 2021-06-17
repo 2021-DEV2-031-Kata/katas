@@ -32,6 +32,12 @@ class GameTests: XCTestCase {
         XCTAssertEqual(board, createBoardWithWithMarkedPosition(size: 3, mark: (row: 0, col: 0,  value: "X")))
     }
     
+    func testGamePlayingGameChagnesTurnToSecondPlayer() {
+        var game = Game(board: Board(), firstPlayer: Player(mark: "X"), secondPlayer: Player(mark: "O"))
+        game.play(0, 0)
+        XCTAssertEqual(game.currentPlayer, Player(mark: "O"))
+    }
+    
     private func createBoardWithWithMarkedPosition(size: Int = 3, mark: (row: Int, col: Int, value: String)) -> [[String]] {
         var board = Array<[String]>(repeating: Array<String>(repeating: "", count: size), count: size)
         board[mark.row][mark.col] = mark.value
